@@ -1,0 +1,47 @@
+.container {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  padding-right: 2.5rem;
+  font-size: 0.95rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.input::placeholder {
+  color: #999;
+}
+
+.clearButton {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: color 0.2s;
+}
+
+.clearButton:hover {
+  color: #333;
+}

@@ -1,0 +1,83 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 0.6rem 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.button:hover:not(:disabled) {
+  background-color: #555;
+}
+
+.button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.pages {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.pageButton {
+  padding: 0.5rem 0.75rem;
+  min-width: 2.5rem;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.pageButton:hover:not(:disabled) {
+  background-color: #e0e0e0;
+}
+
+.pageButton:disabled {
+  cursor: default;
+}
+
+.pageButton.active {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+}
+
+.info {
+  font-size: 0.9rem;
+  color: #666;
+  min-width: 150px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .container {
+    gap: 0.5rem;
+  }
+
+  .button {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  .info {
+    min-width: auto;
+    font-size: 0.85rem;
+  }
+}
