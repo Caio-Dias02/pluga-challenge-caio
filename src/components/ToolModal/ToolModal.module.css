@@ -66,6 +66,8 @@
   height: 7rem;
   object-fit: contain;
   flex-shrink: 0;
+  background-color: #d8d8d8;
+
 }
 
 .details {
@@ -98,7 +100,7 @@
 .button {
   display: block;
   padding: 0.9rem 2.2rem;
-  background-color: #888;
+  background-color: #a7a7a7;
   color: white;
   text-align: center;
   text-decoration: none;
