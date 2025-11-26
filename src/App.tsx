@@ -64,15 +64,6 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <header className={styles.header}>
-        <div className={styles.container}>
-          <h1 className={styles.title}>Ferramentas Pluga</h1>
-          <p className={styles.subtitle}>
-            Descubra integrações e conecte seus apps favoritos
-          </p>
-        </div>
-      </header>
-
       <main className={styles.main}>
         <div className={styles.container}>
           <SearchBar

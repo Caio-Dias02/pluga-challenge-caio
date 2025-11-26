@@ -110,22 +110,21 @@ export function ToolModal({
         aria-modal="true"
         aria-labelledby="modal-title"
       >
-        <button
-          className={styles.closeButton}
-          onClick={onClose}
-          aria-label="Fechar modal"
-        >
-          ✕
-        </button>
-
         <div className={styles.content}>
-          <div className={styles.header}>
+          <div className={styles.toolInfo}>
             <img src={tool.icon} alt={tool.name} className={styles.icon} />
-            <div className={styles.headerRight}>
-              <h2 id="modal-title" className={styles.title}>
-                {tool.name}
-              </h2>
-              <a href={tool.link} className={styles.button}>
+            <div className={styles.details}>
+              <div className={styles.titleBox}>
+                <h2 id="modal-title" className={styles.title}>
+                  {tool.name}
+                </h2>
+              </div>
+              <a
+                href={tool.link}
+                className={styles.button}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Acessar
               </a>
             </div>
