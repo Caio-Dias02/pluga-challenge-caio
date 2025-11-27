@@ -11,12 +11,10 @@ import type { Tool } from '../types';
 export function usePagination(items: Tool[], itemsPerPage: number = 12) {
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Calcula total de páginas
   const totalPages = useMemo(() => {
     return Math.ceil(items.length / itemsPerPage);
   }, [items.length, itemsPerPage]);
 
-  // Garante que currentPage é válida
   const validPage = Math.min(currentPage, Math.max(1, totalPages));
 
   // Pega apenas as ferramentas da página atual
@@ -33,12 +31,10 @@ export function usePagination(items: Tool[], itemsPerPage: number = 12) {
     setCurrentPage(pageNum);
   }, [totalPages]);
 
-  // Próxima página
   const nextPage = useCallback(() => {
     setCurrentPage((prev) => Math.min(prev + 1, totalPages));
   }, [totalPages]);
 
-  // Página anterior
   const prevPage = useCallback(() => {
     setCurrentPage((prev) => Math.max(prev - 1, 1));
   }, []);

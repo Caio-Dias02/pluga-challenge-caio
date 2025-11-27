@@ -12,13 +12,6 @@ interface ToolGridProps {
   onRetry?: () => void;
 }
 
-/**
- * Componente que exibe uma grade de ferramentas
- *
- * - 4 colunas em desktop, responsivo em mobile
- * - Mostra LoadingSpinner enquanto carrega
- * - Mostra EmptyState quando não há resultados
- */
 export function ToolGrid({
   tools,
   loading,

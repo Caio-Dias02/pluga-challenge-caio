@@ -2,17 +2,9 @@ import { useState, useEffect, useCallback } from 'react';
 import type { Tool } from '../types';
 import { getViewHistory, addToViewHistory as saveToHistory } from '../services/storage';
 
-/**
- * Hook para gerenciar o histórico de ferramentas visualizadas
- *
- * Retorna: { recentTools, addToHistory }
- * - recentTools: Array com as 3 ferramentas mais recentes
- * - addToHistory: Função para adicionar uma ferramenta ao histórico
- */
 export function useViewHistory(tools: Tool[]) {
   const [historyAppIds, setHistoryAppIds] = useState<string[]>([]);
 
-  // Carrega histórico do localStorage ao montar
   useEffect(() => {
     const stored = getViewHistory();
     setHistoryAppIds(stored);
@@ -21,7 +13,7 @@ export function useViewHistory(tools: Tool[]) {
   // Função para adicionar ao histórico
   const addToHistory = useCallback(
     (tool: Tool) => {
-      // Adiciona ao localStorage
+
       saveToHistory(tool.app_id);
 
       // Atualiza o estado local

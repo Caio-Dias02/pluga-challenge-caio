@@ -7,13 +7,6 @@ interface ToolCardProps {
   onClick: (tool: Tool) => void;
 }
 
-/**
- * Componente que mostra uma ferramenta em forma de card
- *
- * - Ícone SVG (com fallback para iniciais)
- * - Nome da ferramenta
- * - Borda superior colorida
- */
 export function ToolCard({ tool, onClick }: ToolCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
