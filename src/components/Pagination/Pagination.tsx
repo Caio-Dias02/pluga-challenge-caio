@@ -6,18 +6,13 @@ interface PaginationProps {
   onPageChange: (page: number) => void;
 }
 
-/**
- * Componente de paginação
- *
- * Mostra botões: [Anterior] [1] ... [5] [6] [7] ... [Último] [Próximo]
- */
 export function Pagination({
   currentPage,
   totalPages,
   onPageChange,
 }: PaginationProps) {
   if (totalPages <= 1) {
-    return null; // Não mostra se há só 1 página
+    return null; 
   }
 
   // Calcula quais números de página mostrar
@@ -28,7 +23,7 @@ export function Pagination({
     // Sempre mostra primeira página
     pages.push(1);
 
-    // Se há gap entre 1 e (currentPage - delta), mostra ...
+    // Se há gap entre 1 e (currentPage - delta), mostra ..
     if (currentPage - delta > 2) {
       pages.push('...');
     }

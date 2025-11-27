@@ -2,9 +2,6 @@ import { renderHook } from '@testing-library/react';
 import { useSearchFilter } from './useSearchFilter';
 import type { Tool } from '../types';
 
-// ============================================
-// DADOS MOCK
-// ============================================
 const mockTools: Tool[] = [
   {
     app_id: 'slack',
@@ -37,8 +34,6 @@ const mockTools: Tool[] = [
 ];
 
 describe('useSearchFilter', () => {
-  // ========== TESTE 1: Query Vazia Retorna Tudo ==========
-  // Quando não digita nada, vê todas as ferramentas?
   it('should return all tools when query is empty', () => {
     const { result } = renderHook(() => useSearchFilter(mockTools, ''));
 
@@ -46,8 +41,6 @@ describe('useSearchFilter', () => {
     expect(result.current).toEqual(mockTools);
   });
 
-  // ========== TESTE 2: Busca Case-Insensitive ==========
-  // Digita "SLACK" (maiúscula) e encontra "Slack"?
   it('should filter case-insensitively', () => {
     const { result } = renderHook(() => useSearchFilter(mockTools, 'SLACK'));
 
@@ -55,8 +48,6 @@ describe('useSearchFilter', () => {
     expect(result.current[0].name).toBe('Slack');
   });
 
-  // ========== TESTE 3: Match Parcial ==========
-  // Digita "goo" e encontra "Google Sheets"?
   it('should find partial matches', () => {
     const { result } = renderHook(() =>
       useSearchFilter(mockTools, 'goo')
@@ -66,8 +57,6 @@ describe('useSearchFilter', () => {
     expect(result.current[0].name).toBe('Google Sheets');
   });
 
-  // ========== TESTE 4: Remove Espaços ==========
-  // Digita "  slack  " (com espaços) e encontra?
   it('should trim whitespace from query', () => {
     const { result } = renderHook(() =>
       useSearchFilter(mockTools, '  slack  ')
@@ -77,8 +66,6 @@ describe('useSearchFilter', () => {
     expect(result.current[0].name).toBe('Slack');
   });
 
-  // ========== TESTE 5: Sem Resultados ==========
-  // Digita algo que não existe, retorna vazio?
   it('should return empty array when no matches', () => {
     const { result } = renderHook(() =>
       useSearchFilter(mockTools, 'nonexistent')
@@ -87,18 +74,14 @@ describe('useSearchFilter', () => {
     expect(result.current).toHaveLength(0);
   });
 
-  // ========== TESTE 6: Query com Só Espaços ==========
-  // Digita "   " (só espaços), trata como vazio?
   it('should treat whitespace-only query as empty', () => {
     const { result } = renderHook(() =>
       useSearchFilter(mockTools, '   ')
     );
 
-    expect(result.current).toHaveLength(4); // Retorna tudo
+    expect(result.current).toHaveLength(4);
   });
 
-  // ========== TESTE 7: Múltiplos Matches ==========
-  // Digita "g" encontra "GitHub" E "Google Sheets"?
   it('should find multiple matches', () => {
     const { result } = renderHook(() => useSearchFilter(mockTools, 'g'));
 
@@ -107,8 +90,6 @@ describe('useSearchFilter', () => {
     expect(result.current.map((t) => t.name)).toContain('Google Sheets');
   });
 
-  // ========== TESTE 8: Busca no Começo ==========
-  // Digita "tr" encontra "Trello" (começa com tr)?
   it('should match from the beginning of name', () => {
     const { result } = renderHook(() => useSearchFilter(mockTools, 'tr'));
 
@@ -116,8 +97,6 @@ describe('useSearchFilter', () => {
     expect(result.current[0].name).toBe('Trello');
   });
 
-  // ========== TESTE 9: Busca no Meio ==========
-  // Digita "ack" encontra "Slack"?
   it('should match in the middle of name', () => {
     const { result } = renderHook(() => useSearchFilter(mockTools, 'ack'));
 

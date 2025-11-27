@@ -7,13 +7,6 @@ interface RecentToolsListProps {
   onToolClick: (tool: Tool) => void;
 }
 
-/**
- * Componente que mostra as 3 últimas ferramentas visualizadas
- *
- * - Filtra a ferramenta atual da lista
- * - Mostra ícone + nome
- * - Clicável para trocar o modal
- */
 export function RecentToolsList({
   tools,
   currentToolId,

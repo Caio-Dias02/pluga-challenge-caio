@@ -12,14 +12,6 @@ interface ToolModalProps {
   onRecentToolClick: (tool: Tool) => void;
 }
 
-/**
- * Modal de detalhes da ferramenta
- *
- * Usa React Portal para renderizar fora da DOM principal
- * Focus trap: mantém foco dentro do modal
- * ESC: fecha o modal
- * Backdrop click: fecha o modal
- */
 export function ToolModal({
   isOpen,
   tool,

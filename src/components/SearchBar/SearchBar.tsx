@@ -9,12 +9,6 @@ interface SearchBarProps {
   placeholder?: string;
 }
 
-/**
- * Componente de barra de busca com debounce
- *
- * Debounce = espera o usuário parar de digitar por 300ms antes de chamar onChange
- * Isso evita filtrar a cada letra digitada (melhora performance)
- */
 export function SearchBar({
   value,
   onChange,
@@ -24,7 +18,6 @@ export function SearchBar({
   const [inputValue, setInputValue] = useState(value);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Se value muda de fora, atualiza input
   useEffect(() => {
     setInputValue(value);
   }, [value]);

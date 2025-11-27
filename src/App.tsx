@@ -21,20 +21,16 @@ import styles from './App.module.css';
  * - Rastrear histórico de visualizações
  */
 function App() {
-  // 1. Fetch das ferramentas
+
   const { tools, loading, error } = useToolsData();
 
-  // 2. Gerenciamento de histórico
   const { recentTools, addToHistory } = useViewHistory(tools);
 
-  // 3. Estado da busca e modal
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedTool, setSelectedTool] = useState<Tool | null>(null);
 
-  // 4. Filtro
   const filteredTools = useSearchFilter(tools, searchQuery);
 
-  // 5. Paginação
   const {
     currentItems,
     totalPages,
@@ -42,7 +38,6 @@ function App() {
     goToPage,
   } = usePagination(filteredTools, ITEMS_PER_PAGE);
 
-  // Handlers
   const handleToolClick = (tool: Tool) => {
     setSelectedTool(tool);
     addToHistory(tool);

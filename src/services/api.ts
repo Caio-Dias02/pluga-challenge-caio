@@ -11,12 +11,10 @@ export async function fetchTools(): Promise<Tool[]> {
   try {
     const response = await fetch(API_URL);
 
-    // Se o status não for 200 (OK), lança um erro
     if (!response.ok) {
       throw new Error(`Erro ao buscar ferramentas: ${response.status}`);
     }
 
-    // Converte a resposta em JSON
     const tools: Tool[] = await response.json();
 
     return tools;
