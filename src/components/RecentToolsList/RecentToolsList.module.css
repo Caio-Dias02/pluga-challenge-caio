@@ -43,9 +43,12 @@
 }
 
 .icon {
-  width: 2.2rem;
-  height: 2.2rem;
+  width: 1.8rem;
+  height: 1.8rem;
   object-fit: contain;
+  padding: 0.2rem;
+  background-color: #d8d8d8;
+  border-radius: 50%;
 }
 
 .name {
