@@ -110,6 +110,13 @@ export function ToolModal({
         aria-modal="true"
         aria-labelledby="modal-title"
       >
+        <button
+          className={styles.closeButton}
+          onClick={onClose}
+          aria-label="Fechar modal"
+        >
+          ✕
+        </button>
         <div className={styles.content}>
           <div className={styles.toolInfo}>
             <img src={tool.icon} alt={tool.name} className={styles.icon} />
