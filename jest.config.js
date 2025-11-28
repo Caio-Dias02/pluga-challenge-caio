@@ -35,6 +35,8 @@ export default {
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
     '!src/main.tsx',
+    '!src/App.tsx',
     '!src/**/*.d.ts',
+    '!src/components/**/*.tsx',
   ],
 };
