@@ -29,10 +29,6 @@ export default {
   moduleNameMapper: {
     // CSS modules → vazio (não precisa de CSS em teste)
     '\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
-    // CSS simples → mock vazio
-    '\\.(css|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
-    // Imagens → string dummy
-    '\\.(jpg|jpeg|png|gif|svg)$': '<rootDir>/__mocks__/fileMock.js',
   },
 
   // Coleta cobertura de testes (quanto do código foi testado)
