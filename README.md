@@ -22,7 +22,6 @@ npm run dev          # Rodar em desenvolvimento (http://localhost:5173)
 npm run build        # Build para produção
 npm test             # Rodar testes
 npm run test:watch   # Testes em watch mode
-npm run test:coverage # Cobertura de testes
 npm run lint         # Verificar código
 ```
 
