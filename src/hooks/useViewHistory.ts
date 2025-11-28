@@ -1,14 +1,9 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 import type { Tool } from '../types';
 import { getViewHistory, addToViewHistory as saveToHistory } from '../services/storage';
 
 export function useViewHistory(tools: Tool[]) {
-  const [historyAppIds, setHistoryAppIds] = useState<string[]>([]);
-
-  useEffect(() => {
-    const stored = getViewHistory();
-    setHistoryAppIds(stored);
-  }, []);
+  const [historyAppIds, setHistoryAppIds] = useState<string[]>(() => getViewHistory());
 
   // Função para adicionar ao histórico
   const addToHistory = useCallback(
